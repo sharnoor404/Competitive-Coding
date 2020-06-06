@@ -1,3 +1,10 @@
+/*
+Given a 9*9 sudoku board, in which some entries are
+filled and others are 0 (0 indicates that the cell is empty),
+you need to find out whether the Sudoku puzzle 
+can be solved or not i.e. return true or false.
+*/
+
 bool check_row(int board[][9],int x,int y,int a){
     for(int j=0;j<9;j++){
         if(j!=y && board[x][j]==a){
@@ -58,7 +65,20 @@ bool check_box(int board[][9],int x,int y,int a){
 bool sudokuSolver(int board[][9],int x=0,int y=0){
 
 	if(x==8 && y==8){
- 		   return true;
+        if(board[x][y]!=0){
+             return true;
+        }else{
+                for(int i=1;i<=9;i++){
+            if(check_row(board,x,y,i) && check_col(board,x,y,i) && check_box(board,x,y,i)){
+                board[x][y]=i;
+            }
+        }
+        if(board[x][y]==0){
+            return false;
+        }
+        
+        }
+ 		  
 	}
     if(board[x][y]!=0){//already filled
         if(y<8){
