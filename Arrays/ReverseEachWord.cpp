@@ -13,7 +13,7 @@ void reverseEachWord(char input[]) {
             count++;
         }
         int end=i-1;
-        for(int j=start;j<(start+count)/2;j++){
+        for(int j=start;j<start+(count)/2;j++){
             char temp=input[j];
             input[j]=input[end];
             input[end]=temp;
@@ -23,4 +23,5 @@ void reverseEachWord(char input[]) {
     }
 
 }
+
 
