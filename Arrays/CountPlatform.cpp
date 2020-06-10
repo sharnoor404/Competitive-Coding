@@ -22,7 +22,7 @@ int platformsNeeded(int arrival[], int departure[], int n) {
                 max_count=count;
             }
         }else{
-            count=0;
+            count--;
                j++;  
         }
     }
