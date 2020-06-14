@@ -1,3 +1,6 @@
+/*
+Given a matrix of m * n elements (m rows, n columns), return all elements of the matrix in spiral order.
+*/
 vector<int> Solution::spiralOrder(const vector<vector<int> > &A) {
     int start_row=0;
     int start_col=0;

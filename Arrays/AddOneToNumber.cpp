@@ -1,3 +1,7 @@
+/*
+Given a non-negative number represented as an array of digits,
+add 1 to the number ( increment the number represented by the digits ).
+*/
 vector<int> Solution::plusOne(vector<int> &A) {
     reverse(A.begin(),A.end());
     
