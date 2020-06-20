@@ -20,4 +20,21 @@ void rotateArr(int arr[], int d, int n){
    reverse(arr,n,0,n-d-1);
    reverse(arr,n,n-d,n-1);
 }
-
+//approach 2:
+void rotateArr(int arr[], int d, int n){
+    int k=-1;
+    for(int i=0;i<__gcd(d,n);i++){
+        int j=i;
+        int temp=arr[i];
+        while(1){
+             k=(j+d)%n;
+            if(k==i){
+                break;
+            }
+            arr[j]=arr[k];
+            j=k;
+        }
+        arr[j]=temp;
+        
+    }
+}
