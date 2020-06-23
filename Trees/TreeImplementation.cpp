@@ -79,7 +79,13 @@ void printTreeLevelWise(TreeNode<int>* root) {
     
 }
 
-
+int countNode(TreeNode<int>* root){
+	ans=1;
+	for(int i=0;i<root->children.size();i++){
+		ans+=countNodes(root->children[i]);
+	}
+	return ans;
+}
 
 int main(){
 	//recursive method for input
