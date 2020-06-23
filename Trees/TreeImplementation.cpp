@@ -126,6 +126,19 @@ void printAtLevelK(TreeNode<int>* root,int K){
 	}
 }
 
+void postOrder(TreeNode<int>* root) {
+    
+    if(root==NULL){
+        return;
+    }
+    
+    for(int i=0;i<root->children.size();i++){
+        postOrder(root->children[i]);
+    }
+    cout<<root->data<<" ";
+
+}
+
 int main(){
 	//recursive method for input
 	TreeNode<int>* root=takeInput();
@@ -151,5 +164,7 @@ int main(){
 	//print nodes at level K
 	printAtLevelK(root,3);
 	
+	//postOrderTraversal
+	postOrder(root);
 	//DELETE TREE
 }
