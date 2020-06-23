@@ -59,11 +59,36 @@ void printTree(TreeNode<int>* root){
 	}	
 }
 
+void printTreeLevelWise(TreeNode<int>* root) {
+    queue<TreeNode<int>*> pendingNodes;
+    pendingNodes.push(root);
+    
+    while(!pendingNodes.empty()){
+        TreeNode<int>* x=pendingNodes.front();
+        pendingNodes.pop();
+        cout<<x->data<<":";
+        for(int i=0;i<x->children.size();i++){
+            pendingNodes.push(x->children[i]);
+            cout<<x->children[i]->data;
+            if(i!=x->children.size()-1){
+                cout<<",";
+            }
+        }
+        cout<<endl;
+    }
+    
+}
+
+
+
 int main(){
 	//recursive method for input
 	TreeNode<int>* root=takeInput();
 	//level wise input intake(better)
 	TreeNode<int>* root=takeInputLevelWise();
+	//printing corresponding to recursive input
 	printTree(root);
+	//printing Level Wise
+	printTreeLevelWise(root);
 	//DELETE TREE
 }
