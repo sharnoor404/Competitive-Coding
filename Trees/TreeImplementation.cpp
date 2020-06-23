@@ -80,9 +80,9 @@ void printTreeLevelWise(TreeNode<int>* root) {
 }
 
 int countNode(TreeNode<int>* root){
-	ans=1;
+	int ans=1;
 	for(int i=0;i<root->children.size();i++){
-		ans+=countNodes(root->children[i]);
+		ans+=countNode(root->children[i]);
 	}
 	return ans;
 }
@@ -97,15 +97,43 @@ int sumOfNodes(TreeNode<int>* root) {
     
 }
 
+TreeNode<int>* maxDataNode(TreeNode<int>* root) {
+    if(root==NULL){
+        return NULL;
+    }
+   TreeNode<int>* maxNode=root;
+    for(int i=0;i<root->children.size();i++){
+        TreeNode<int>* x=maxDataNode(root->children[i]);
+        if(x->data>maxNode->data){
+            maxNode=x;
+        }
+    }
+    return maxNode;
+
+}
+
 
 int main(){
 	//recursive method for input
 	TreeNode<int>* root=takeInput();
+	
 	//level wise input intake(better)
 	TreeNode<int>* root=takeInputLevelWise();
+	
 	//printing corresponding to recursive input
 	printTree(root);
+	
 	//printing Level Wise
 	printTreeLevelWise(root);
+	
+	//count Number of Nodes
+	cout<<"Number of Nodes in the tree = "<<countNode(root);
+	
+	//sum of the tree nodes
+	cout<<"Number of Nodes in the tree = "<<sumOfNodes(root);
+	
+	TreeNode<int>* max=maxDataNode(root);
+	cout<<"Max Data Node = "<<max->data<<endl;
+	
 	//DELETE TREE
 }
