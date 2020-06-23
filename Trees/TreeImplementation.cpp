@@ -139,15 +139,25 @@ void postOrder(TreeNode<int>* root) {
 
 }
 
+void deleteTree(TreeNode<int>*root){
+		if(root==NULL){
+			return;
+		}
+		for(int i=0;i<root->children.size();i++){
+			deleteTree(root->children[i]);
+		}
+		delete root;
+	}
+
 int main(){
-	//recursive method for input
-	TreeNode<int>* root=takeInput();
+	/*recursive method for input
+	TreeNode<int>* root=takeInput();*/
 	
 	//level wise input intake(better)
 	TreeNode<int>* root=takeInputLevelWise();
 	
-	//printing corresponding to recursive input
-	printTree(root);
+	/*printing corresponding to recursive input
+	printTree(root);*/
 	
 	//printing Level Wise
 	printTreeLevelWise(root);
@@ -166,5 +176,13 @@ int main(){
 	
 	//postOrderTraversal
 	postOrder(root);
+	
 	//DELETE TREE
+	
+	//Method 1:using function
+	deleteTree(root);
+	
+	//Method 2: using destructor
+	delete root;
+	
 }
