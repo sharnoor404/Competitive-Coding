@@ -112,6 +112,19 @@ TreeNode<int>* maxDataNode(TreeNode<int>* root) {
 
 }
 
+void printAtLevelK(TreeNode<int>* root,int K){
+	if(root==NULL){
+		return;
+	}
+	if(K==0){
+		cout<<root->data<<" ";
+		return;
+	}
+	
+	for(int i=0;i<root->children.size();i++){
+		printAtLevelK(root->children[i],K-1);
+	}
+}
 
 int main(){
 	//recursive method for input
@@ -134,6 +147,9 @@ int main(){
 	
 	TreeNode<int>* max=maxDataNode(root);
 	cout<<"Max Data Node = "<<max->data<<endl;
+	
+	//print nodes at level K
+	printAtLevelK(root,3);
 	
 	//DELETE TREE
 }
