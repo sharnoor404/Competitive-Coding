@@ -103,10 +103,19 @@ void printLevelWise(BinaryTreeNode<int> *root) {
 
 }
 
+int countNodes(BinaryTreeNode<int> *root){
+	if(root==NULL){
+		return 0;
+	}
+	
+	return countNodes(root->left) + countNodes(root->right) +1;
+}
 
 int main(){
 
 	BinaryTreeNode<int>* root=takeInputLevelWise();
 	printLevelWise(root);
+	cout<<"num of nodes= "<<countNodes(root);
+	delete root;
 
 }
