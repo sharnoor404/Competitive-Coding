@@ -131,6 +131,25 @@ void preOrder(BinaryTreeNode<int> *root) {
 
 }
 
+void inOrder(BinaryTreeNode<int> *root) {
+    if(root==NULL){
+        return;
+    }
+    
+    preOrder(root->left);
+    cout<<root->data<<" ";
+    preOrder(root->right);
+
+}
+
+int height(BinaryTreeNode<int> *root) {
+    if(root==NULL){
+        return 0;
+    }
+    return std::max(height(root->left),height(root->right))+1;
+
+}
+
 
 int main(){
 
