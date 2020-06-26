@@ -35,6 +35,44 @@ BinaryTreeNode<int>*  takeInput(){
 }
 
 
+BinaryTreeNode<int>* takeInputLevelWise(){
+	int x;
+	cout<<"Enter data"<<endl;
+	cin>>x;
+	if(x==-1){
+		return NULL;
+	}
+	BinaryTreeNode<int>* root=new BinaryTreeNode<int>(x);
+	queue<BinaryTreeNode<int>*> pendingNodes;
+	pendingNodes.push(root);
+	
+	while(!pendingNodes.empty()){
+		BinaryTreeNode<int>* front=pendingNodes.front();
+		pendingNodes.pop();
+		cout<<"Enter left child of "<<front->data<<endl;
+		int leftData;
+		cin>>leftData;
+		BinaryTreeNode<int>* leftChild;
+		if(leftData!=-1){
+			leftChild=new BinaryTreeNode<int>(leftData);
+			front->left=leftChild;
+			pendingNodes.push(leftChild);
+		}
+		
+		cout<<"Enter right child of "<<front->data<<endl;
+		int rightData;
+		cin>>rightData;
+		BinaryTreeNode<int>* rightChild;
+		if(rightData!=-1){
+			rightChild=new BinaryTreeNode<int>(rightData);
+			front->right=rightChild;
+			pendingNodes.push(rightChild);
+		}
+			
+	}
+	return root;
+}
+
 int main(){
 /*
 	BinaryTreeNode<int>* root=new BinaryTreeNode<int>(1);
