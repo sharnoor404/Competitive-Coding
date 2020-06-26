@@ -111,6 +111,27 @@ int countNodes(BinaryTreeNode<int> *root){
 	return countNodes(root->left) + countNodes(root->right) +1;
 }
 
+void postOrder(BinaryTreeNode<int> *root) {
+ 	if(root==NULL){
+    	 return;
+ 	}
+    postOrder(root->left);
+    postOrder(root->right);
+    cout<<root->data<<" ";
+    
+}
+void preOrder(BinaryTreeNode<int> *root) {
+    if(root==NULL){
+        return;
+    }
+    
+    cout<<root->data<<" ";
+    preOrder(root->left);
+    preOrder(root->right);
+
+}
+
+
 int main(){
 
 	BinaryTreeNode<int>* root=takeInputLevelWise();
