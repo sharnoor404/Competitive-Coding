@@ -26,4 +26,33 @@ bool isBST(BinaryTreeNode<int>* root){
 	bool ans=(root->data>leftMin) && (root->data<=rightMin) && isBST(root->left) && isBST(root->right);
 	return ans;
 }
+//approach 2: Complexity=O(n)
+
+class BSTReturn{
+	public:
+		bool isBinarySearchTree;
+		int maximum;
+		int minimum;
+};
+
+BSTReturn isBST(BinaryTreeNode<int>* root){
+	
+	if(root==NULL){
+		BSTReturn output;
+		output.isBinarySearchTree=true;
+		output.maximum=INT_MIN;
+		output.minimum=INT_MAX;
+		return output;
+	}
+	
+	BSTReturn leftOutput=isBST(root->left);
+	BSTReturn rightOutput=isBST(root->right);
+	
+	BSTReturn output;
+	output.maximum=std::max(root->data,std::max(leftOutput.maximum,rightOutput.maximum));
+	output.minimum=std::min(root->data,std::min(leftOutput.minimum,rightOutput.minimum));
+	output.isBinarySearchTree=(root->data<maximum_left && root->data>=minimum_right && leftOutput.isBinarySearchTree && rightOutput.isBinarySearchTree);
+	return output;
+}
+
 
