@@ -55,4 +55,16 @@ BSTReturn isBST(BinaryTreeNode<int>* root){
 	return output;
 }
 
+//approach 3: Complexity=O(n)
 
+bool isBST(BinaryTreeNode<int>* root,int min=INT_MIN,int max=INT_MAX){
+	if(root==NULL){
+		return true;
+	}
+	if(root->data<min || root->data>max){
+		return false;
+	}
+	bool ansLeft=isBST(root->left,min,root->data-1);
+	bool ansRight=isBST(root->right,root->data,max);
+	return ansLeft && ansRight;
+}
