@@ -176,6 +176,7 @@ vector<int>* getRootToNodePath(BinaryTreeNode<int>* root,int data){
 	
 }
 
+
 int main(){
 
 	BinaryTreeNode<int>* root=takeInputLevelWise();
@@ -186,6 +187,7 @@ int main(){
 		cout<<ans->at(i)<<endl;
 	}
 	delete ans;
+	
 	delete root;
 	
 
