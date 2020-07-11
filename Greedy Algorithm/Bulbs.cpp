@@ -1,5 +1,5 @@
 /*
-Bulbs problem 
+Bulbs problem : IB
 */
 int Solution::bulbs(vector<int> &A) {
     int look_for=0;
