@@ -5,20 +5,15 @@ Check if the given graph is connected or not
 #include <iostream>
 using namespace std;
 
-bool DFStraversal(bool **edges,int V,bool *visited, int start){
+int DFStraversal(bool **edges,int V,bool *visited, int start,int &count){
     visited[start]=true;
+    count++;
     for(int i=0;i<V;i++){
         if(!visited[i] && edges[start][i]){
-           return DFStraversal(edges,V,visited,i);
+           DFStraversal(edges,V,visited,i,count);
         }
     }
     
-    for(int i=0;i<V;i++){
-        if(visited[i]==false){
-            return false;
-        }
-    }
-    return true;
 }
 
 int main() {
@@ -41,8 +36,9 @@ int main() {
         edges[s][e]=true;
         edges[e][s]=true;
     }
-    
-     if(DFStraversal(edges,V,visited,0)){
+    int count=0;
+     DFStraversal(edges,V,visited,0,count);
+    if(count==V){
          cout<<"true";
      }else{
          cout<<"false";
