@@ -3,7 +3,7 @@ Given a graph with N vertices (numbered from 1 to N) and Two Lists (U,V) of size
 are connected by an edge , then count the distinct 3-cycles in the graph
 */
 
-//Approach 1: using adjacency matrix(takes more time)
+//Approach 1: using adjacency matrix
 int solve(int n,int m,vector<int>u,vector<int>v)
 {
 	bool **edges=new bool*[n+1];
@@ -36,7 +36,7 @@ int solve(int n,int m,vector<int>u,vector<int>v)
 	//divided by 6 since for each vertex of the triangle, the triangle is added twice(see hint)
     return ans/6;
     
-    //Approach 2: using adjacency list(better)
+    //Approach 2: using adjacency list
     #include <bits/stdc++.h>
 #include<iostream>
 #include<unordered_map>
