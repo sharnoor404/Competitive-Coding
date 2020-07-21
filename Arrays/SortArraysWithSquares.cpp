@@ -1,18 +1,23 @@
 /*
-Sort arrays with squares problem
+Given a sorted array with positive and negative elements return a sorted array of their squares 
 */
+
 vector<int> Solution::solve(vector<int> &A) {
-    int i=0;
+    
     vector<int> solution;
-    while(A[i]<0){
-        i++;
+    int i=0;
+    for(i=0;i<A.size();i++){
+        if(A[i]>=0){
+            break;
+        }
     }
+    
     //i points to first positive integer
     int j=i-1;
     //j points to the preceding negative integer
     
-    while(j>=0 && i<A.size()){
-        if(abs(A[j])>=A[i]){
+    while(i<A.size() && j>=0){
+        if(abs(A[j])>=abs(A[i])){
             solution.push_back(A[i]*A[i]);
             i++;
         }else{
@@ -21,8 +26,8 @@ vector<int> Solution::solve(vector<int> &A) {
         }
     }
     if(j>=0){
-        for(int i=j;i>=0;i--){
-            solution.push_back(A[i]*A[i]);
+        for(int k=j;k>=0;k--){
+            solution.push_back(A[k]*A[k]);
         }
     }else if(i<A.size()){
         for(int k=i;k<A.size();k++){
