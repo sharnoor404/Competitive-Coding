@@ -1,5 +1,6 @@
-// input - given string
-// output - output string that contains largest unique substring
+/*
+Largest Unique Substring Coding Ninjas
+*/
 #include<unordered_map>
 #include<string>
 using namespace std;
