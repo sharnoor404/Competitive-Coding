@@ -1,3 +1,6 @@
+/*
+Given a string, find the count of upper case,lower case, numbers and spl characters in the string
+*/
 #include <iostream>
 using namespace std;
 
