@@ -1,7 +1,41 @@
 /*
 Given 2 arrays X and Y.
-Count pairs such that x^y > y^x.
+Count pairs such that x^y > y^x, where x belongs to X and y belongs to Y.
 */
+
+//Approach 1: (Works for small numbers only)
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	for(int i=0;i<t;i++){
+	    long long int n,m;
+	    cin>>n>>m;
+	    int *X=new int[n];
+	    int *Y=new int[m];
+	    for(long long int j=0;j<n;j++){
+	        cin>>X[j];
+	    }
+	    for(long long int j=0;j<m;j++){
+	        cin>>Y[j];
+	    }
+	    long long int count=0;
+	    for(int i=0;i<n;i++){
+	        for(int j=0;j<m;j++){
+	            if(pow(X[i],Y[j])>pow(Y[j],X[i])){
+	                count++;
+	            }
+	        }
+	    }
+	    cout<<count<<endl;
+	}
+	return 0;
+}
+
+//Approach 2: Efficient
 #include <iostream>
 #include<algorithm>
 using namespace std;
