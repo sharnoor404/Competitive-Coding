@@ -36,3 +36,48 @@ int main() {
 	}
 	return 0;
 }
+
+
+//Approach 2:
+#include <iostream>
+using namespace std;
+
+int main() {
+	int T;
+	cin>>T;
+	for(int i=0;i<T;i++){
+	    long long int N;
+	    cin>>N;
+	    long long int *arr=new long long int[N];
+	    long long int max=0;
+	    for(long long int j=0;j<N;j++){
+	        cin>>arr[j];
+	        if(arr[j]>max)
+	        {
+	            max=arr[j];
+	        }
+	    }
+	    
+	    long long int z=max+1;
+	    
+	    // arr[i]=newVal*z+oldVal
+	    long long int start=0;
+	    long long int end=N-1;
+	    for(long long int j=0;j<N;j++){
+	        if(j%2==0){
+	            arr[j]=(arr[end]%z)*z+arr[j];
+	            end--;
+	        }else{
+	            arr[j]=(arr[start]%z)*z+arr[j];
+	            start++;
+	        }
+	    }
+	    
+	    for(long long int j=0;j<N;j++){
+	        arr[j]=arr[j]/z;
+	        cout<<arr[j]<<" ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
