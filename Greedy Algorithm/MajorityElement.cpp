@@ -35,19 +35,22 @@ int Solution::majorityElement(const vector<int> &A) {
 //approach 2: greedy
 
 int Solution::majorityElement(const vector<int> &A) {
+    if(A.size()==0){
+        return 0;
+    }
+    int majority_elem=A[0];
     int count=1;
-    int max_elem=A[0];
     for(int i=1;i<A.size();i++){
-        if(A[i]==max_elem){
+        if(count==0){
+            majority_elem=A[i];
+            count=0;
+        }
+        if(A[i]==majority_elem){
             count++;
         }else{
             count--;
         }
-        if(count==0){
-            max_elem=A[i];
-            count=1;
-        }
     }
-    return max_elem;
+    return majority_elem;
 }
 
