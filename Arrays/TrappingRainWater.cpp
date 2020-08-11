@@ -23,3 +23,47 @@ int trappingWater(int arr[], int n){
     }
     return rainWater;
 }
+
+//approach 2
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	for(int i=0;i<t;i++){
+	    int n;
+	    cin>>n;
+	    int *arr=new int [n];
+	    for(int j=0;j<n;j++){
+	        cin>>arr[j];
+	    }
+	    
+	    int leftMax=0;
+	    int rightMax=0;
+	    int l=0;
+	    int r=n-1;
+	    int water=0;
+	    while(l<r){
+	        if(arr[l]<arr[r]){
+	            if(arr[l]>leftMax){
+	                leftMax=arr[l];
+	            }else{
+	                water+=(leftMax-arr[l]);
+	            }
+	            l++;
+	        }else{
+	            if(arr[r]>rightMax){
+	                rightMax=arr[r];
+	            }else{
+	                water+=(rightMax-arr[r]);
+	            }
+	            r--;
+	        }
+	    }
+	    
+	    cout<<water<<endl;
+	}
+	return 0;
+}
