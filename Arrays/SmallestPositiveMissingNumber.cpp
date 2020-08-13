@@ -60,3 +60,39 @@ int findMissing(int arr[], int n) {
 //check which index doesnt have a value as index+1
 // ans=1+1: 2 
 
+
+//approach 2:
+
+#include <iostream>
+#include<climits>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	for(int i=0;i<t;i++){
+	    int n;
+	    cin>>n;
+	    int *arr=new int[n+1];
+	    
+	    for(int j=0;j<n;j++){
+	        cin>>arr[j];
+	    }
+	    arr[n]=-1;
+	    for(int j=0;j<n;j++){
+	           while(arr[j]>=0 && arr[j]<=n && arr[arr[j]]!=arr[j]){
+	               int temp=arr[arr[j]];
+	               arr[arr[j]]=arr[j];
+	               arr[j]=temp;
+	           }
+	    }
+        int j=1;
+        for(j=1;j<=n;j++){
+            if(arr[j]!=j){
+                break;
+            }
+        }
+        cout<<j<<endl;
+	}
+	return 0;
+}
