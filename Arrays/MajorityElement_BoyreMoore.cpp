@@ -1,3 +1,6 @@
+/*
+Majority Element that occurs more than n/2 times : GFG
+*/
 #include <iostream>
 using namespace std;
 
