@@ -1,5 +1,5 @@
 /*
-Maximum of all subarrays of size k
+Maximum of all subarrays of size k : GFG
 */
 #include <iostream>
 #include<climits>
