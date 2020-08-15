@@ -1,6 +1,9 @@
 /*
-Minimum number of insertions to make a palindrome
+THIS IS SAME AS NO: OF INSERTIONS SINCE MIN NO: OF INSERTIONS=MIN NO: OF DELETIONS
+Minimum number of deletions to form a palindrome
+minimum number of deletions=string length-longest palindromic subsequence(this is the max sized palindrome)
 */
+
 
 //Recursive approach
 #include <iostream>
