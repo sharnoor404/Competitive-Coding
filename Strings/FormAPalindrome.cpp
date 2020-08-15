@@ -32,3 +32,46 @@ int main() {
 	}
 	return 0;
 }
+
+//Approach 2: using dynamic programming
+#include <iostream>
+using namespace std;
+
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	while(t--){
+	    string s;
+	    cin>>s;
+        int **arr=new int*[s.length()];
+        for(int i=0;i<s.length();i++){
+            arr[i]=new int[s.length()];
+            for(int j=0;j<s.length();j++){
+                if(i==j){
+                    //since the longest palindromic string of a single char word is 1
+                    arr[i][j]=1;
+                }else{
+                   arr[i][j]=0; 
+                }
+            }
+        }
+        
+        for(int d=2;d<=s.length();d++){
+            for(int i=0;i<s.length()-d+1;i++){
+                int j=i+d-1;
+                if(s[i]==s[j] && d==2){
+                    arr[i][j]=2;
+                }
+                else if(s[i]==s[j]){
+                    arr[i][j]=2+arr[i+1][j-1];
+                }else{
+                    arr[i][j]=std::max(arr[i+1][j],arr[i][j-1]);
+                }
+            }
+        }
+       cout<<s.length()-arr[0][s.length()-1]<<endl; 
+	}
+	return 0;
+}
