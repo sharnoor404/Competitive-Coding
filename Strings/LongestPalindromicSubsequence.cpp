@@ -1,7 +1,7 @@
 /*
-Minimum number of insertions to make a palindrome
-minimum number of insertions=string length-longest palindromic subsequence(this is the max sized palindrome)
+Longest Palindromic subsequence of a string
 */
+
 
 //Recursive approach
 #include <iostream>
@@ -29,7 +29,7 @@ int main() {
 	while(t--){
 	    string s;
 	    cin>>s;
-        cout<<s.length()-LCS(s,0,s.length()-1)<<endl;
+        cout<<LCS(s,0,s.length()-1)<<endl;
 	}
 	return 0;
 }
@@ -72,7 +72,7 @@ int main() {
                 }
             }
         }
-       cout<<s.length()-arr[0][s.length()-1]<<endl; 
+       cout<<arr[0][s.length()-1]<<endl; 
 	}
 	return 0;
 }
