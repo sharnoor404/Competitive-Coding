@@ -72,8 +72,14 @@ int main(){
                 }
                 if(xx==yy){
                     //remove duplicate count
-                    //cout<<i<<" "<<x<<endl;
-                    //cout<<j<<" "<<y<<endl;
+                    /*
+                    when both elements are same => 1 1 1 1
+                    here our freq =4;
+                    however every 1 would form a pair with only (4-1) 1's
+                    i.e remaining 1's other than itself
+            		Therefore, either pair count = (3+3+3+3)/2=6 (since (1,1) would be counted twice for each 1)
+            		or (frq-1)*(freq)/2;
+                    */
                     int z=(i-x)+(y-j)-1;
                     count+=(z)*(z+1)/2;
                 }else{
