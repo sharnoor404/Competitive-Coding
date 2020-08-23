@@ -30,7 +30,7 @@ int main() {
 	            ans[i]=s.top();
 	        }
              s.push(arr[i]);
-             //cout<<"pushed element: "<<arr[i]<<endl;
+             
 	    }
 	    for(int i=0;i<n;i++){
 	        cout<<ans[i]<<" ";
