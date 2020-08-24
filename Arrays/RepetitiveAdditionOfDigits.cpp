@@ -27,3 +27,28 @@ int main() {
 	}
 	
 }
+
+//Approach 2: O(1)
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int T;
+	cin>>T;
+	for(int i=0;i<T;i++){
+	   int n;
+	   /*
+	   bcoz every number can be represented as 9x+k
+	   */
+	   cin>>n;
+	   if(n==0){
+	       cout<<"0"<<endl;
+	   }else if(n%9==0){
+	       cout<<"9"<<endl;
+	   }else{
+	       cout<<n%9<<endl;
+	   }
+	}
+	
+}
