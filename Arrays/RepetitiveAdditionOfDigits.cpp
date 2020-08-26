@@ -1,5 +1,5 @@
 /*
-Repetitive addition of digits : GFG
+Repetitive addition of digits until single digit : GFG
 */
 
 //Approach 1:
