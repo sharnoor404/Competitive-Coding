@@ -1,3 +1,6 @@
+/*
+Boredom : CN
+*/
 #include<unordered_map>
 int solve(int n,vector<int>A){
     int *dp=new int [1001];
