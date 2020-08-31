@@ -1,5 +1,5 @@
 /*
-Given a number N, find all factors of N.
+Given a number N, find all factors of N. : IB
 */
 vector<int> Solution::allFactors(int A) {
     

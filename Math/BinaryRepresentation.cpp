@@ -1,5 +1,5 @@
 /*
-Given a number N >= 0, find its representation in binary.
+Given a number N >= 0, find its representation in binary. : IB
 */
 
 string Solution::findDigitsInBinary(int A) {

@@ -1,5 +1,5 @@
 /*
-Given an integer N. The task is to find the number of digits that appear in its factorial.
+Given an integer N. The task is to find the number of digits that appear in its factorial. : IB
 */
 
 int digitsInFactorial(int N)
