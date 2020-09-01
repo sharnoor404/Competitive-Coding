@@ -101,3 +101,49 @@ int main() {
     }
 	return 0;
 }
+
+//Approach 3: This approach is based on Approach 2, Complexity=O(nlogn)
+//Instead of using a 2nd for loop to look for dp[length],dp[length+1] 
+//such that arr[i] lies btw them, we perform binary search to find that index,
+//therefore reducing the complexity from n^2 to nlogn
+//we have used binary search here since dp array would always remain strictly increasing (except for initial state with INT_MIN and INT_MAX)
+
+#include <bits/stdc++.h>
+#include <climits>
+using namespace std;
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int *arr=new int[n];
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        int *dp=new int[n+1];
+        dp[0]=INT_MIN;
+        for(int i=1;i<=n;i++){
+            dp[i]=INT_MAX;
+        }
+        for(int i=0;i<n;i++){
+        //upper_bound function returns iterator for desired position
+            int x=upper_bound(dp,dp+n+1,arr[i])-dp;
+            if(dp[x-1]<arr[i] && arr[i]<dp[x]){
+                dp[x]=arr[i];
+            }
+        }
+        int max_val=0;
+        for(int i=0;i<=n;i++){
+            if(dp[i]!=INT_MAX){
+                max_val=i;
+            }
+        }
+        delete [] arr;
+        delete [] dp;
+        
+        cout<<max_val<<endl;
+    }
+	return 0;
+}
