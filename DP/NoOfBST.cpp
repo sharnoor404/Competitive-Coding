@@ -1,6 +1,12 @@
 /*
 No. of BSTs
 */
+
+/*
+The formula for the same= nth term of catalan numbers => 2nCn/(n+1)
+The no: of binary trees possible=n! * 2nCn/(n+1)
+The no: of un labeled binary trees possible=2nCn/(n+1)
+*/
 #define x 1000000007
 int countBST( int n)
 {
