@@ -106,7 +106,7 @@ int main() {
 //Instead of using a 2nd for loop to look for dp[length],dp[length+1] 
 //such that arr[i] lies btw them, we perform binary search to find that index,
 //therefore reducing the complexity from n^2 to nlogn
-//we have used binary search here since dp array would always remain strictly increasing (except for initial state with INT_MIN and INT_MAX)
+//we have used binary search here since dp array would always remain strictly increasing (except for initial state with dp[0]=INT_MIN and rest =INT_MAX, as it would not be 'strictly' increasing)
 
 #include <bits/stdc++.h>
 #include <climits>
