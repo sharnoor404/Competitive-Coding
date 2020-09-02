@@ -1,31 +1,40 @@
 /*
 MCM : CN
 */
+
 #include<climits>
 int mcm(int* p, int n){
 
-    int **dp=new int*[n+1];
-    for(int i=0;i<=n;i++){
-        dp[i]=new int[n+1];
-    }
-    for(int i=1;i<=n;i++){
-        dp[i][0]=0;
-        dp[0][i]=0;
-        dp[i][i]=0;
-    }
-    for(int d=2;d<=n;d++){
-        for(int i=1;i<=n-d+1;i++){
-            int j=i+d-1;
+    int **dp=new int*[n];
+    for(int i=0;i<n;i++){
+        dp[i]=new int[n];
+        for(int j=0;j<n;j++){
             dp[i][j]=INT_MAX;
-            int q;
-            for(int k=i;k<=j-1;k++){
-                q=dp[i][k]+dp[k+1][j]+p[i-1]*p[k]*p[j];
-                if(q<dp[i][j]){
-                    dp[i][j]=q;
-                }
-            }
         }
     }
-return dp[1][n];
+    for(int i=0;i<n;i++){
+        dp[i][i]=0;
+    }
+    int start=1;
+	int i=0,j=1;
+     while(i<n && j<n){
+        // cout<<i<<" "<<j<<endl;
+         for(int k=i;k<j;k++){
+             dp[i][j]=std::min(dp[i][j],dp[i][k] + dp[k+1][j] + p[i]*p[k+1]*p[j+1]);
+         }
+         //cout<<dp[i][j]<<endl;
+         i++;
+         j++;
+         if(j==n){
+             start++;
+             if(start==n){
+                 break;
+             }
+             i=0;
+             j=start;
+         }
+       }
+    
+return dp[0][n-1];
 }
 
